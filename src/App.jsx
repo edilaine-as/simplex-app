@@ -27,26 +27,29 @@ function App() {
     if (e.key === "Tab") {
       setRestricoes(true);
 
-      for (let x = 1; x <= Number(numRes); x++) {
-        handleComponent.push(<HandleComponentRes key={x} />);
+      for (let x = 0; x < Number(numRes); x++) {
+
+        handleComponent.push(<HandleComponentRes key={x} id={x} />);
       }
     }
   };
 
   const HandleComponentRes = (e) => {
-    return (
-      <div className="mt-3">
-        <Text className="font-semibold mb-1">
-          Restrição
-        </Text>
-        <TextInput.Root>
-          <TextInput.Input
-            id="res"
-            onChange={(e) => handleChangeRes(e, index)}
-          />
-        </TextInput.Root>
-      </div>
-    );
+
+      return (
+        <div className="mt-3">
+          <Text className="font-semibold mb-1">
+            Restrição {e.id + 1}
+          </Text>
+          <TextInput.Root>
+            <TextInput.Input
+              id="res"
+              onChange={(e) => handleChangeRes(e, index)}
+            />
+          </TextInput.Root>
+        </div>
+      );
+
   };
 
   return (
